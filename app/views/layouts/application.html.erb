@@ -29,7 +29,7 @@
     <%= stylesheet_link_tag "application", media: "all","data-turbolinks-track": "reload" %>
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="http://getbootstrap.com/assets/js/ie-emulation-modes-warning.js"></script>
+    <!-- <script src="http://getbootstrap.com/assets/js/ie-emulation-modes-warning.js"></script> -->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -43,14 +43,15 @@
     <div class="blog-masthead">
       <div class="container">
         <nav class="blog-nav">
-          <a class="blog-nav-item active" href="#">Home</a>
+		  <%= link_to "Home",posts_path,class:"blog-nav-item active"  %>
 		  <% Category.all.each do |category| %>
 			<%= link_to category.name,posts_path(category:category.id),class:"blog-nav-item" %>
-          <!-- <a class="blog-nav-item" href="#">New features</a> -->
-          <!-- <a class="blog-nav-item" href="#">Press</a> -->
-          <!-- <a class="blog-nav-item" href="#">New hires</a> -->        
+            <!-- <a class="blog-nav-item" href="#">New features</a> -->
+            <!-- <a class="blog-nav-item" href="#">Press</a> -->
+            <!-- <a class="blog-nav-item" href="#">New hires</a> -->        
 		  <% end %>
-		  <a class="blog-nav-item" href="#">About</a>
+		  <!--	  <a class="blog-nav-item" href="#">About</a>-->
+		  <%= link_to "About","#",class:"blog-nav-item"  %>
 		  <!-- % if sign_in?%>		   -->
 			<!-- %= link_to "Sign Out",sign_out_path,class:"blog-nav-item pull-right"%> -->
 		  <!-- % else %> -->
